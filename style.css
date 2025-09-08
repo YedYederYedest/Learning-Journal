@@ -45,6 +45,46 @@ header h1
     grid-area: head;
 }
 
+/* SPECIAL TREATMENT FOR JOURNEY CLASS */
+.journey-article {
+    background: url("images/laptop.jpg") center/cover no-repeat;
+    position: relative;
+    padding: 2em;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    border-radius: 0.5em;
+}
+
+.journey-article::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; 
+    height: 100%;
+    border-radius: 0.5em;
+}
+
+.journey-article .article-header {
+    position: relative;
+    z-index: 1; 
+}
+
+.journey-article h2
+{
+    font-size: 2rem;
+    text-shadow: 0 0 3px white;
+}
+
+.journey-article h3
+{
+    font-size: 1.5rem;
+    text-shadow: 0 0 3px white;
+}
+
+
+/* NAV */
 nav a
 {
     color: black;
@@ -69,7 +109,8 @@ nav ul
     margin: 0;
     list-style-type: none;
 }
-
+ 
+/* MAIN */
 main
 {
     grid-area: main;
@@ -108,39 +149,37 @@ main
     }
 }
 
-/* NOTE: EDIT THIS OUT TOO MATCH THE FIGMA DESCRIPTION */
 @media (min-width:870px)
 {
     main
     {
-        grid-template-columns: repeat(9, 1fr) repeat(3, minmax(70px,1fr));
-        grid-template-areas:
-        "jour jour jour jour lapt lapt lapt beac beac beac cafe cafe"
-        "cate cate cate code code code moge moge moge .... cafe cafe";
-    }
-}
-
-/* @media (min-width:1920px)
-{
-    main
-    {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-areas: 
+        grid-template-areas:
         "jour jour jour"
         "lapt beac cafe"
         "cate code moge";
     }
-} */
+}
+
+/* Anchor Related */
+a
+{
+    transition: 0.5s;
+    cursor: pointer;
+}
 
 a:hover, a:focus
 {
     filter: brightness(0.9);
 }
 
+main a:hover, main a:focus
+{
+    filter: invert(1);
+}
+
 a:focus
 {
-    outline: 3px solid #7428EA;
-    box-shadow: 0 0 0 3px #7428EA;
     transition: 0.2s ease;
 }
 
@@ -163,6 +202,7 @@ img
     width: 100%;
     border-top-left-radius: .2em;
     border-top-right-radius: .2em;
+    height: 400px ;
 }
 
 .site-footer
@@ -257,4 +297,63 @@ transition: 0.5s;
 .learn:hover
 {
     color: #7428EA;
+}
+
+#darkToggle
+{
+    font-size: 1rem;
+    border: 1px solid black;
+    padding: .2em;
+    background-color: white;
+    transition: 0.5s;
+}
+
+#darkToggle:hover
+{
+    color: #7428EA;
+    box-shadow: 0 0 10px black;
+}
+
+/* DARK MODE */
+body.dark-mode {
+  background-color:black;
+  color: white;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode a   
+{
+    color: white;
+    transition: 0.5s;
+}
+
+body.dark-mode a:hover
+{
+    color: #7428EA;
+}  
+
+body.dark-mode article h2,
+body.dark-mode article h3
+{
+    color: black;
+}
+
+body.dark-mode article p
+{
+    color: red;
+}
+
+body.dark-mode #darkToggle {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+body.dark-mode #darkToggle:hover {
+    background-color: white;
+    color: #7428EA;
+    box-shadow: 0 0 10px white;
 }
