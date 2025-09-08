@@ -1,0 +1,15 @@
+Requirements
+1. BUILD FROM SCRATCH
+2. MAKE ALL PAGE RESPONSIVE
+    -Relative Units
+    -Mobile-First Design
+    -Media Queries
+    -Viewport Meta Tags
+
+Stretch Goals
+1. Make it you own
+2. Add custom images.
+3. Make the content about your learning experiences
+4. Add new pages
+5. Display other recent posts after clicking "View More"
+6. Responsive navigation displaying a "hamburger menu" on smaller screens
