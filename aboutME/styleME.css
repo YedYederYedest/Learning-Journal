@@ -9,6 +9,42 @@ html,body
     padding: 0;
 }
 
+body
+{
+    display: grid;
+    grid-template-columns: 1em 1fr 1em ;
+    grid-template-areas: 
+    ".... .... ...."
+    ".... head ...."
+    ".... main ...."
+    ".... foot ...."
+    ".... .... ....";
+    gap: 1em 0;
+}
+
+header
+{
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: relative;
+}
+
+header h1
+{
+    font-size: 3rem;
+    font-weight: bolder;
+    transition: 0.5s;
+}
+
+.site-header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    grid-area: head;
+}
+
 /* NAV */
 nav a
 {
@@ -35,7 +71,120 @@ nav ul
     list-style-type: none;
 }
  
-/* TYPOGRAPHY */
+/* MAIN */
+main
+{
+    grid-area: main;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1em;
+    grid-template-areas: 
+    "abou"
+    "info"
+    "lapt" 
+    "beac" 
+    "cafe"
+}
+
+.about-post
+{
+    grid-area: abou;
+}
+
+.info-post
+{
+    grid-area: info;
+}
+
+.recent-post
+{
+    grid-area: rece;
+}
+
+@media (min-width: 400px) 
+{
+    main
+    {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+        "abou abou"
+        "info info"
+        "rece rece"
+        "lapt lapt"
+        "beac beac"
+        "cafe cafe";
+    }   
+
+    nav ul
+    {
+        gap: 1em;
+        text-align: center;
+    }
+}
+
+@media (min-width:870px)
+{
+    main
+    {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+        "abou abou abou"
+        "info info info"
+        "rece rece rece"
+        "lapt beac cafe";
+    }
+}
+
+/* Anchor Related */
+a
+{
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+a:hover, a:focus
+{
+    filter: brightness(0.9);
+}
+
+main a:hover, main a:focus
+{
+    filter: invert(1);
+}
+
+a:focus
+{
+    transition: 0.2s ease;
+}
+
+article
+{
+    border-radius: 0.5em;
+    background-color: rgb(255, 254, 254);
+    height: 100%;
+}
+
+.article-header
+{
+    box-sizing: border-box;
+    padding: 1em;
+    width: 100%;
+}
+
+img
+{
+    width: 100%;
+    border-top-left-radius: .2em;
+    border-top-right-radius: .2em;
+    height: 400px ;
+}
+
+.site-footer
+{
+    grid-area: foot;
+    text-align: center;
+}
+
 h1
 {
     color: black;
@@ -69,6 +218,21 @@ p
     color: red;
 }
 
+.laptop
+{
+    grid-area: lapt;
+}
+
+.beach
+{
+    grid-area: beac;
+}
+
+.cafe
+{
+    grid-area: cafe;
+}
+
 .yed
 {
     transition: 0.5s;
@@ -89,14 +253,61 @@ transition: 0.5s;
     color: #7428EA;
 }
 
-/* MEDIA QUERIES */
-@media (min-width: 500px) 
+/* DARK MODE */
+#darkToggle
 {
+    font-size: 1rem;
+    border: 1px solid black;
+    padding: .2em;
+    background-color: white;
+    transition: 0.5s;
 }
 
-@media (min-width:870px)
+#darkToggle:hover
 {
+    color: #7428EA;
+    box-shadow: 0 0 10px black;
 }
 
+body.dark-mode {
+  background-color:black;
+  color: white;
+}
 
-/* FIT THE CRITERIA OF FIGMA AND DO MORE OF THE ABOUT ME SECTION */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode a   
+{
+    color: white;
+    transition: 0.5s;
+}
+
+body.dark-mode a:hover
+{
+    color: #7428EA;
+}  
+
+body.dark-mode article h2,
+body.dark-mode article h3
+{
+    color: black;
+}
+
+body.dark-mode article p
+{
+    color: red;
+}
+
+body.dark-mode #darkToggle {
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+body.dark-mode #darkToggle:hover {
+    background-color: white;
+    color: #7428EA;
+    box-shadow: 0 0 10px white;
+}
