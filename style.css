@@ -16,7 +16,7 @@ body
     grid-template-areas: 
     ".... .... ...."
     ".... head ...."
-    ".... main ...."
+    "main main main"
     ".... foot ...."
     ".... .... ....";
     gap: 1em 0;
@@ -113,6 +113,7 @@ nav ul
 /* MAIN */
 main
 {
+    padding: 1em;
     grid-area: main;
     display: grid;
     gap: 1em;
