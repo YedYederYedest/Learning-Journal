@@ -11,11 +11,11 @@ body {
     display: grid;
     grid-template-columns: 1em 1fr 1em;
     grid-template-areas: 
-    ".... .... ...."
-    ".... head ...."
-    ".... main ...."
-    ".... foot ...."
-    ".... .... ....";
+    ". . ."
+    ". head ."
+    ". main ."
+    ". foot ."
+    ". . .";
     gap: 1em 0;
 }
 
@@ -65,59 +65,50 @@ main {
     grid-area: main;
     display: grid;
     gap: 1em;
-    grid-template-columns: 1em;
+    grid-template-columns: 1fr;
     grid-template-areas: 
-    "abou"
+    "journey"
     "info"
-    "lapt" 
+    "rece"
+    "cate" 
     "beac" 
     "cafe";
 }
 
-.about-post {
-    grid-area: abou;
-    box-sizing: border-box;
+.journey-post {
+    grid-area: journey;
+    margin: 2em;
+    padding: 2em;
+    text-align: start;
+}
+
+.journey-post p,
+.journey-post h2,
+.journey-post h3
+{
+    margin-left: 3em;
+    line-height: 1.5em;
+}
+
+.journey-post h3
+{
+    margin-bottom: 2em;
+}
+.journey-post img
+{
+
+    height: 50em;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    border: 0.105em solid black;
-    box-shadow: 10px 0 10px black;
+    justify-content: flex-end; 
+    border-radius: 0.5em;
+    border: 3px solid black;
     transition: 0.5s;
 }
 
-.about-post:hover {
-    box-shadow: 15px 15px 15px #7428EA;
-}
-
-.about-post img {
-    max-width: 80%;
-    height: auto;
-    border-radius: 50%;
-    object-fit: cover;
-    padding: 1em;
-    flex-shrink: 0;
-    transition: 0.5s;
-}
-
-.about-post img:hover {
-    transform: scale(1.02);
-}
-
-.introduction {
-    font-size: 5rem;
-    line-height: 1;
-}
-
-.introduction-description {
-    margin-top: 0.5em;
-    font-size: 1.5rem;
-    line-height: 1.5;
-}
-
-.me-description {
-    padding: 2em;
-    margin: 1.5em;
+.journey-article
+{
+    padding: 0.5em;
 }
 
 .info-post {
@@ -146,22 +137,14 @@ main {
     line-height: 1.5;
 }
 
-.name {
-    transition: 0.5s;
-}
-
-.name:hover {
-    color: #7428EA;
-}
-
 @media (min-width: 400px) {
     main {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
-        "abou abou"
+        "journey journey"
         "info info"
         "rece rece"
-        "lapt lapt"
+        "cate cate"
         "beac beac"
         "cafe cafe";
     }   
@@ -171,31 +154,21 @@ main {
     }
 }
 
-@media (min-width: 700px) {
-    .about-post {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-    .about-post img {
-        width: 380px;
-        height: 380px;
-    }
-}
-
 @media (min-width: 870px) {
     main {
         grid-template-columns: repeat(3, 1fr);
         grid-template-areas:
-        "abou abou abou"
+        "journey journey journey"
         "info info info"
         "rece rece rece"
-        "lapt beac cafe";
+        "cate beac cafe";
     }
 }
 
 a {
     transition: 0.5s;
     cursor: pointer;
+    text-decoration: none;
 }
 
 a:hover, a:focus {
@@ -204,10 +177,6 @@ a:hover, a:focus {
 
 main a:hover, main a:focus {
     filter: invert(1);
-}
-
-a:focus {
-    transition: 0.2s ease;
 }
 
 article {
@@ -240,10 +209,6 @@ h1 {
     padding: 0;
 }
 
-a {
-    text-decoration: none;
-}
-
 h2 {
     color: black;
     margin: 0;
@@ -262,8 +227,8 @@ p {
     color: red;
 }
 
-.laptop {
-    grid-area: lapt;
+.cate {
+    grid-area: cate;
 }
 
 .beach {
@@ -342,12 +307,21 @@ body.dark-mode #darkToggle:hover {
     box-shadow: 0 0 10px white;
 }
 
-body.dark-mode .about-post {
-    border: 0.105em solid white;
-    box-shadow: 10px 0 10px white;
+body.dark-mode .site-header {
     transition: 0.5s;
 }
 
-body.dark-mode .about-post:hover {
-    box-shadow: 15px 10px 15px #7428EA;
+body.dark-mode .journey-article {
+    background-color: black;
+    box-shadow: 0 0 10px white;
+    padding: 0.5em;
+    transition: 0.5s;
 }
+
+body.dark-mode .article-header h2,
+body.dark-mode .article-header h3,
+body.dark-mode .article-header p {
+    color: white;
+    transition: 0.5s;
+}
+
